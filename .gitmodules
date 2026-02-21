@@ -67,3 +67,6 @@
 [submodule "plugins/scene-notes-dock"]
 	path = plugins/scene-notes-dock
 	url = https://github.com/exeldro/obs-scene-notes-dock
+[submodule "plugins/pipewire-audio-capture"]
+	path = plugins/pipewire-audio-capture
+	url = https://github.com/hilmanahwaa/obs-pipewire-audio-capture.git
