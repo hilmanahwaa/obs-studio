@@ -1,3 +1,5 @@
+> Note: this fork of OBS Studio includes a selection of third-party plugins
+
 OBS Studio <https://obsproject.com>
 ===================================
 
