@@ -9,7 +9,7 @@
 	url = https://github.com/obsproject/obs-websocket.git
 [submodule "plugins/SceneSwitcher"]
 	path = plugins/SceneSwitcher
-	url = https://github.com/WarmUpTill/SceneSwitcher
+	url = https://github.com/hilmanahwaa/SceneSwitcher.git
 [submodule "plugins/downstream-keyer"]
 	path = plugins/downstream-keyer
 	url = https://github.com/exeldro/obs-downstream-keyer.git
