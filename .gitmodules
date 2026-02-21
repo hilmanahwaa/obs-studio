@@ -64,3 +64,6 @@
 [submodule "plugins/adjustment-layer"]
 	path = plugins/adjustment-layer
 	url = https://github.com/HoraiChan/obs-adjustment-layer
+[submodule "plugins/scene-notes-dock"]
+	path = plugins/scene-notes-dock
+	url = https://github.com/exeldro/obs-scene-notes-dock
