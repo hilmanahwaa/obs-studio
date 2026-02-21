@@ -61,7 +61,7 @@ check_obs_browser()
 add_obs_plugin(obs-ffmpeg)
 add_obs_plugin(obs-filters)
 add_obs_plugin(obs-libfdk)
-add_obs_plugin(obs-nvenc PLATFORMS WINDOWS LINUX ARCHITECTURES x64 x86_64)
+#add_obs_plugin(obs-nvenc PLATFORMS WINDOWS LINUX ARCHITECTURES x64 x86_64)
 add_obs_plugin(obs-outputs)
 add_obs_plugin(
     obs-qsv11
@@ -75,7 +75,7 @@ add_obs_plugin(
     PLATFORMS WINDOWS MACOS LINUX
     WITH_MESSAGE
 )
-add_obs_plugin(obs-webrtc)
+#add_obs_plugin(obs-webrtc)
 
 check_obs_websocket()
 
@@ -88,3 +88,27 @@ add_obs_plugin(vlc-video WITH_MESSAGE)
 add_obs_plugin(win-capture PLATFORMS WINDOWS)
 add_obs_plugin(win-dshow PLATFORMS WINDOWS)
 add_obs_plugin(win-wasapi PLATFORMS WINDOWS)
+
+# Add plugins
+add_obs_plugin(adjustment-layer)
+add_obs_plugin(advanced-masks)
+add_obs_plugin(browser-transition)
+add_obs_plugin(composite-blur)
+add_obs_plugin(downstream-keyer)
+add_obs_plugin(freeze-filter)
+add_obs_plugin(gradient-source)
+add_obs_plugin(media-controls)
+add_obs_plugin(move-transition)
+add_obs_plugin(noise)
+add_obs_plugin(quick-access-utility)
+add_obs_plugin(scene-as-transition)
+add_obs_plugin(scene-notes-dock)
+add_obs_plugin(SceneSwitcher)
+add_obs_plugin(shaderfilter)
+add_obs_plugin(source-clone)
+add_obs_plugin(source-dock)
+add_obs_plugin(source-switcher)
+add_obs_plugin(stroke-glow-shadow)
+add_obs_plugin(svg-source)
+add_obs_plugin(time-warp-scan)
+add_obs_plugin(transition-table)

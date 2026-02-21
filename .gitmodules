@@ -7,3 +7,60 @@
 [submodule "plugins/obs-websocket"]
 	path = plugins/obs-websocket
 	url = https://github.com/obsproject/obs-websocket.git
+[submodule "plugins/SceneSwitcher"]
+	path = plugins/SceneSwitcher
+	url = https://github.com/WarmUpTill/SceneSwitcher
+[submodule "plugins/downstream-keyer"]
+	path = plugins/downstream-keyer
+	url = https://github.com/exeldro/obs-downstream-keyer.git
+[submodule "plugins/media-controls"]
+	path = plugins/media-controls
+	url = https://github.com/exeldro/obs-media-controls
+[submodule "plugins/advanced-masks"]
+	path = plugins/advanced-masks
+	url = https://github.com/FiniteSingularity/obs-advanced-masks
+[submodule "plugins/composite-blur"]
+	path = plugins/composite-blur
+	url = https://github.com/FiniteSingularity/obs-composite-blur
+[submodule "plugins/svg-source"]
+	path = plugins/svg-source
+	url = https://github.com/FiniteSingularity/svg-source/
+[submodule "plugins/source-dock"]
+	path = plugins/source-dock
+	url = https://github.com/exeldro/obs-source-dock
+[submodule "plugins/freeze-filter"]
+	path = plugins/freeze-filter
+	url = https://github.com/exeldro/obs-freeze-filter
+[submodule "plugins/scene-as-transition"]
+	path = plugins/scene-as-transition
+	url = https://github.com/andilippi/obs-scene-as-transition
+[submodule "plugins/noise"]
+	path = plugins/noise
+	url = https://github.com/FiniteSingularity/obs-noise
+[submodule "plugins/browser-transition"]
+	path = plugins/browser-transition
+	url = https://github.com/exeldro/obs-browser-transition
+[submodule "plugins/gradient-source"]
+	path = plugins/gradient-source
+	url = https://github.com/exeldro/obs-gradient-source
+[submodule "plugins/move-transition"]
+	path = plugins/move-transition
+	url = https://github.com/exeldro/obs-move-transition
+[submodule "plugins/source-clone"]
+	path = plugins/source-clone
+	url = https://github.com/exeldro/obs-source-clone
+[submodule "plugins/transition-table"]
+	path = plugins/transition-table
+	url = https://github.com/exeldro/obs-transition-table
+[submodule "plugins/stroke-glow-shadow"]
+	path = plugins/stroke-glow-shadow
+	url = https://github.com/FiniteSingularity/obs-stroke-glow-shadow
+[submodule "plugins/quick-access-utility"]
+	path = plugins/quick-access-utility
+	url = https://github.com/FiniteSingularity/obs-quick-access-utility
+[submodule "plugins/source-switcher"]
+	path = plugins/source-switcher
+	url = https://github.com/exeldro/obs-source-switcher
+[submodule "plugins/adjustment-layer"]
+	path = plugins/adjustment-layer
+	url = https://github.com/HoraiChan/obs-adjustment-layer
