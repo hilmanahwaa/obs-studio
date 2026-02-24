@@ -87,7 +87,7 @@ void cleanBackupCollision(const SceneCollection &collection)
 			std::filesystem::remove(backupFilePath);
 		} catch (std::filesystem::filesystem_error &) {
 			throw std::logic_error("Failed to remove pre-existing scene collection backup file: " +
-					       backupFilePath.u8string());
+					       backupFilePath.string());
 		}
 	}
 }
@@ -254,9 +254,9 @@ SceneCollection &OBSBasic::CreateSceneCollection(const std::string &collectionNa
 	}
 
 	std::string collectionFile;
-	collectionFile.reserve(App()->userScenesLocation.u8string().size() + SceneCollectionPath.size() +
+	collectionFile.reserve(App()->userScenesLocation.string().size() + SceneCollectionPath.size() +
 			       fileName.size());
-	collectionFile.append(App()->userScenesLocation.u8string()).append(SceneCollectionPath).append(fileName);
+	collectionFile.append(App()->userScenesLocation.string()).append(SceneCollectionPath).append(fileName);
 
 	if (!GetClosestUnusedFileName(collectionFile, "json")) {
 		throw std::invalid_argument("Failed to get closest file name for new scene collection: " + fileName);
@@ -442,18 +442,18 @@ void OBSBasic::RefreshSceneCollectionCache()
 			continue;
 		}
 
-		if (entry.path().extension().u8string() != ".json") {
+		if (entry.path().extension().string() != ".json") {
 			continue;
 		}
 
 		OBSDataAutoRelease collectionData =
-			obs_data_create_from_json_file_safe(entry.path().u8string().c_str(), "bak");
+			obs_data_create_from_json_file_safe(entry.path().string().c_str(), "bak");
 
 		std::string candidateName;
 		std::string collectionName = obs_data_get_string(collectionData, "name");
 
 		if (collectionName.empty()) {
-			candidateName = entry.path().stem().u8string();
+			candidateName = entry.path().stem().string();
 		} else {
 			candidateName = std::move(collectionName);
 		}
@@ -657,7 +657,7 @@ void OBSBasic::on_actionExportSceneCollection_triggered()
 		const std::filesystem::path destinationFile =
 			std::filesystem::u8path(destinationFileName.toStdString());
 
-		OBSDataAutoRelease collection = obs_data_create_from_json_file(sourceFile.u8string().c_str());
+		OBSDataAutoRelease collection = obs_data_create_from_json_file(sourceFile.string().c_str());
 
 		OBSDataArrayAutoRelease sources = obs_data_get_array(collection, "sources");
 		if (!sources) {
@@ -688,7 +688,7 @@ void OBSBasic::on_actionExportSceneCollection_triggered()
 		}
 
 		obs_data_set_array(collection, "sources", newSources);
-		obs_data_save_json_pretty_safe(collection, destinationFile.u8string().c_str(), "tmp", "bak");
+		obs_data_save_json_pretty_safe(collection, destinationFile.string().c_str(), "tmp", "bak");
 	}
 }
 
@@ -1136,7 +1136,7 @@ void OBSBasic::Load(SceneCollection &collection)
 			blog(LOG_WARNING,
 			     "File exists but appears to be corrupt, renaming "
 			     "to \"%s\" before continuing.",
-			     backupFilePath.filename().u8string().c_str());
+			     backupFilePath.filename().string().c_str());
 
 			try {
 				std::filesystem::rename(filePath, backupFilePath);
@@ -1284,7 +1284,7 @@ void OBSBasic::LoadData(obs_data_t *data, SceneCollection &collection)
 			backupFilePath.replace_extension(".json.v1");
 
 			if (!std::filesystem::exists(backupFilePath)) {
-				bool success = obs_data_save_json_pretty_safe(data, backupFilePath.u8string().c_str(),
+				bool success = obs_data_save_json_pretty_safe(data, backupFilePath.string().c_str(),
 									      "tmp", nullptr);
 
 				if (!success) {

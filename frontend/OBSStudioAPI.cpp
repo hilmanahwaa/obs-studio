@@ -182,7 +182,7 @@ char *OBSStudioAPI::obs_frontend_get_current_profile_path()
 {
 	const OBSProfile &profile = main->GetCurrentProfile();
 
-	return bstrdup(profile.path.u8string().c_str());
+	return bstrdup(profile.path.string().c_str());
 }
 
 void OBSStudioAPI::obs_frontend_set_current_profile(const char *profile)

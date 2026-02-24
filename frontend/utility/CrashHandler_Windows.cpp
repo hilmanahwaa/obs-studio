@@ -38,7 +38,7 @@ std::filesystem::path CrashHandler::findLastCrashLog() const
 	std::filesystem::path crashLogDirectory = getCrashLogDirectory();
 
 	if (!std::filesystem::exists(crashLogDirectory)) {
-		blog(LOG_ERROR, "Crash log directory '%s' does not exist", crashLogDirectory.u8string().c_str());
+		blog(LOG_ERROR, "Crash log directory '%s' does not exist", crashLogDirectory.string().c_str());
 
 		return lastCrashLogFile;
 	}
@@ -50,7 +50,7 @@ std::filesystem::path CrashHandler::findLastCrashLog() const
 			continue;
 		}
 
-		std::string entryFileName = entry.path().filename().u8string();
+		std::string entryFileName = entry.path().filename().string();
 
 		if (entryFileName.rfind("Crash ", 0) != 0) {
 			continue;

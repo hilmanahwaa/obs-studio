@@ -27,12 +27,12 @@ std::string SceneCollection::getName() const
 
 std::string SceneCollection::getFileName() const
 {
-	return filePath_.filename().u8string();
+	return filePath_.filename().string();
 }
 
 std::string SceneCollection::getFileStem() const
 {
-	return filePath_.stem().u8string();
+	return filePath_.stem().string();
 }
 
 std::filesystem::path SceneCollection::getFilePath() const
@@ -42,7 +42,7 @@ std::filesystem::path SceneCollection::getFilePath() const
 
 std::string SceneCollection::getFilePathString() const
 {
-	return filePath_.u8string();
+	return filePath_.string();
 }
 
 SceneCoordinateMode SceneCollection::getCoordinateMode() const

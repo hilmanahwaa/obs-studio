@@ -19,7 +19,7 @@ static OBSData GetDataFromJsonFile(const char *jsonFile)
 	OBSDataAutoRelease data = nullptr;
 
 	if (!jsonFilePath.empty()) {
-		BPtr<char> jsonData = os_quick_read_utf8_file(jsonFilePath.u8string().c_str());
+		BPtr<char> jsonData = os_quick_read_utf8_file(jsonFilePath.string().c_str());
 
 		if (!!jsonData) {
 			data = obs_data_create_from_json(jsonData);

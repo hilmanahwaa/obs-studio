@@ -207,8 +207,8 @@ void OBSImporter::importCollections()
 			}
 
 			std::string collectionFile;
-			collectionFile.reserve(sceneCollectionLocation.u8string().size() + fileName.size());
-			collectionFile.append(sceneCollectionLocation.u8string()).append(fileName);
+			collectionFile.reserve(sceneCollectionLocation.string().size() + fileName.size());
+			collectionFile.append(sceneCollectionLocation.string()).append(fileName);
 
 			if (!GetClosestUnusedFileName(collectionFile, "json")) {
 				blog(LOG_WARNING, "Failed to get closest file name for %s", fileName.c_str());
