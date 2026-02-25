@@ -21,3 +21,25 @@ void BrowserToolbar::on_refresh_clicked()
 	obs_property_t *p = obs_properties_get(props.get(), "refreshnocache");
 	obs_property_button_clicked(p, source.Get());
 }
+
+void BrowserToolbar::on_back_clicked()
+{
+	OBSSource source = GetSource();
+	if (!source) {
+		return;
+	}
+
+	obs_property_t *p = obs_properties_get(props.get(), "navigateback");
+	obs_property_button_clicked(p, source.Get());
+}
+
+void BrowserToolbar::on_forward_clicked()
+{
+	OBSSource source = GetSource();
+	if (!source) {
+		return;
+	}
+
+	obs_property_t *p = obs_properties_get(props.get(), "navigateforward");
+	obs_property_button_clicked(p, source.Get());
+}

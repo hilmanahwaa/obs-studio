@@ -1,6 +1,7 @@
 #pragma once
 
 #include "SourceToolbar.hpp"
+#include "obs.hpp"
 
 class Ui_BrowserSourceToolbar;
 
@@ -15,4 +16,6 @@ public:
 
 public slots:
 	void on_refresh_clicked();
+	void on_back_clicked();
+	void on_forward_clicked();
 };
