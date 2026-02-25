@@ -113,6 +113,28 @@
     </widget>
    </item>
    <item>
+    <widget class="QPushButton" name="home">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>22</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>NavigateHome</string>
+     </property>
+     <property name="icon">
+      <iconset theme="QIcon::ThemeIcon::GoHome"/>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+     <property name="class" stdset="0">
+      <string notr="true">icon-home</string>
+     </property>
+    </widget>
+   </item>
+   <item>
     <spacer name="horizontalSpacer">
      <property name="orientation">
       <enum>Qt::Orientation::Horizontal</enum>
