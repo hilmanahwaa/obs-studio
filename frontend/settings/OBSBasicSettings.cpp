@@ -1882,7 +1882,7 @@ OBSPropertiesView *OBSBasicSettings::CreateEncoderPropertyView(const char *encod
 		const std::filesystem::path jsonFilePath = currentProfile.path / std::filesystem::u8path(path);
 
 		if (!jsonFilePath.empty()) {
-			obs_data_t *data = obs_data_create_from_json_file_safe(jsonFilePath.u8string().c_str(), "bak");
+			obs_data_t *data = obs_data_create_from_json_file_safe(jsonFilePath.string().c_str(), "bak");
 			obs_data_apply(settings, data);
 			obs_data_release(data);
 		}
@@ -3269,7 +3269,7 @@ static void WriteJsonData(OBSPropertiesView *view, const char *path)
 	if (!jsonFilePath.empty()) {
 		obs_data_t *settings = view->GetSettings();
 		if (settings) {
-			obs_data_save_json_safe(settings, jsonFilePath.u8string().c_str(), "tmp", "bak");
+			obs_data_save_json_safe(settings, jsonFilePath.string().c_str(), "tmp", "bak");
 		}
 	}
 }
@@ -5027,7 +5027,7 @@ void OBSBasicSettings::AdvReplayBufferChanged()
 
 		if (!jsonFilePath.empty()) {
 			OBSDataAutoRelease data =
-				obs_data_create_from_json_file_safe(jsonFilePath.u8string().c_str(), "bak");
+				obs_data_create_from_json_file_safe(jsonFilePath.string().c_str(), "bak");
 			obs_data_apply(settings, data);
 		}
 	}

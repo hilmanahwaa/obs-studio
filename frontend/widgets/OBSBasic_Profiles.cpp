@@ -149,9 +149,9 @@ const OBSProfile &OBSBasic::CreateProfile(const std::string &profileName)
 	}
 
 	std::string profileDirectory;
-	profileDirectory.reserve(App()->userProfilesLocation.u8string().size() + OBSProfilePath.size() +
+	profileDirectory.reserve(App()->userProfilesLocation.string().size() + OBSProfilePath.size() +
 				 directoryName.size());
-	profileDirectory.append(App()->userProfilesLocation.u8string()).append(OBSProfilePath).append(directoryName);
+	profileDirectory.append(App()->userProfilesLocation.string()).append(OBSProfilePath).append(directoryName);
 
 	if (!GetClosestUnusedFileName(profileDirectory, nullptr)) {
 		throw std::invalid_argument("Failed to get closest directory name for new profile: " + profileName);
@@ -169,7 +169,7 @@ const OBSProfile &OBSBasic::CreateProfile(const std::string &profileName)
 		profileDirectoryPath / std::filesystem::u8path(OBSProfileSettingsFile);
 
 	auto [iterator, success] =
-		profiles.try_emplace(profileName, OBSProfile{profileName, profileDirectoryPath.filename().u8string(),
+		profiles.try_emplace(profileName, OBSProfile{profileName, profileDirectoryPath.filename().string(),
 							     profileDirectoryPath, profileFile});
 
 	OnEvent(OBS_FRONTEND_EVENT_PROFILE_LIST_CHANGED);
@@ -353,7 +353,7 @@ void OBSBasic::RefreshProfileCache()
 
 		ConfigFile config;
 
-		if (config.Open(profileCandidate.u8string().c_str(), CONFIG_OPEN_EXISTING) != CONFIG_SUCCESS) {
+		if (config.Open(profileCandidate.string().c_str(), CONFIG_OPEN_EXISTING) != CONFIG_SUCCESS) {
 			continue;
 		}
 
@@ -363,10 +363,10 @@ void OBSBasic::RefreshProfileCache()
 		if (configName) {
 			candidateName = configName;
 		} else {
-			candidateName = entry.path().filename().u8string();
+			candidateName = entry.path().filename().string();
 		}
 
-		foundProfiles.try_emplace(candidateName, OBSProfile{candidateName, entry.path().filename().u8string(),
+		foundProfiles.try_emplace(candidateName, OBSProfile{candidateName, entry.path().filename().string(),
 								    entry.path(), profileCandidate});
 	}
 
@@ -554,7 +554,7 @@ void OBSBasic::on_actionImportProfile_triggered()
 
 	if (!sourceDirectory.isEmpty() && !sourceDirectory.isNull()) {
 		const std::filesystem::path sourcePath = std::filesystem::u8path(sourceDirectory.toStdString());
-		const std::string directoryName = sourcePath.filename().u8string();
+		const std::string directoryName = sourcePath.filename().string();
 
 		if (auto profile = GetProfileByDirectoryName(directoryName)) {
 			OBSMessageBox::warning(this, QTStr("Basic.MainMenu.Profile.Import"),
@@ -563,9 +563,9 @@ void OBSBasic::on_actionImportProfile_triggered()
 		}
 
 		std::string destinationPathString;
-		destinationPathString.reserve(App()->userProfilesLocation.u8string().size() + OBSProfilePath.size() +
+		destinationPathString.reserve(App()->userProfilesLocation.string().size() + OBSProfilePath.size() +
 					      directoryName.size());
-		destinationPathString.append(App()->userProfilesLocation.u8string())
+		destinationPathString.append(App()->userProfilesLocation.string())
 			.append(OBSProfilePath)
 			.append(directoryName);
 
@@ -662,7 +662,7 @@ void OBSBasic::on_actionExportProfile_triggered()
 void OBSBasic::ActivateProfile(const OBSProfile &profile, bool reset)
 {
 	ConfigFile config;
-	if (config.Open(profile.profileFile.u8string().c_str(), CONFIG_OPEN_ALWAYS) != CONFIG_SUCCESS) {
+	if (config.Open(profile.profileFile.string().c_str(), CONFIG_OPEN_ALWAYS) != CONFIG_SUCCESS) {
 		throw std::logic_error("failed to open configuration file of new profile: " +
 				       profile.profileFile.string());
 	}

@@ -444,7 +444,7 @@ void OBSBasic::on_actionReleaseNotes_triggered()
 
 void OBSBasic::on_actionShowSettingsFolder_triggered()
 {
-	const std::string userConfigPath = App()->userConfigLocation.u8string() + "/obs-studio";
+	const std::string userConfigPath = App()->userConfigLocation.string() + "/obs-studio";
 	const QString userConfigLocation = QString::fromStdString(userConfigPath);
 
 	QDesktopServices::openUrl(QUrl::fromLocalFile(userConfigLocation));
@@ -454,7 +454,7 @@ void OBSBasic::on_actionShowProfileFolder_triggered()
 {
 	try {
 		const OBSProfile &currentProfile = GetCurrentProfile();
-		QString currentProfileLocation = QString::fromStdString(currentProfile.path.u8string());
+		QString currentProfileLocation = QString::fromStdString(currentProfile.path.string());
 
 		QDesktopServices::openUrl(QUrl::fromLocalFile(currentProfileLocation));
 	} catch (const std::invalid_argument &error) {

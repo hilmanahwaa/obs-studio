@@ -36,7 +36,7 @@ void OBSBasic::SaveService()
 	obs_data_set_string(data, "type", obs_service_get_type(service));
 	obs_data_set_obj(data, "settings", settings);
 
-	if (!obs_data_save_json_safe(data, jsonFilePath.u8string().c_str(), "tmp", "bak")) {
+	if (!obs_data_save_json_safe(data, jsonFilePath.string().c_str(), "tmp", "bak")) {
 		blog(LOG_WARNING, "Failed to save service");
 	}
 }
@@ -51,7 +51,7 @@ bool OBSBasic::LoadService()
 		const std::filesystem::path jsonFilePath =
 			currentProfile.path / std::filesystem::u8path(OBSServiceFileName);
 
-		data = obs_data_create_from_json_file_safe(jsonFilePath.u8string().c_str(), "bak");
+		data = obs_data_create_from_json_file_safe(jsonFilePath.string().c_str(), "bak");
 
 		if (!data) {
 			return false;

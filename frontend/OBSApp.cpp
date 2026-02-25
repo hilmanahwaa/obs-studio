@@ -462,7 +462,7 @@ static bool MakeUserProfileDirs()
 			std::filesystem::create_directories(userProfilePath);
 		} catch (const std::filesystem::filesystem_error &error) {
 			blog(LOG_ERROR, "Failed to create user profile directory '%s'\n%s",
-			     userProfilePath.u8string().c_str(), error.what());
+			     userProfilePath.string().c_str(), error.what());
 			return false;
 		}
 	}
@@ -472,7 +472,7 @@ static bool MakeUserProfileDirs()
 			std::filesystem::create_directories(userScenesPath);
 		} catch (const std::filesystem::filesystem_error &error) {
 			blog(LOG_ERROR, "Failed to create user scene collection directory '%s'\n%s",
-			     userScenesPath.u8string().c_str(), error.what());
+			     userScenesPath.string().c_str(), error.what());
 			return false;
 		}
 	}
@@ -482,7 +482,7 @@ static bool MakeUserProfileDirs()
 			std::filesystem::create_directories(userPluginManagerPath);
 		} catch (const std::filesystem::filesystem_error &error) {
 			blog(LOG_ERROR, "Failed to create user plugin manager directory '%s'\n%s",
-			     userPluginManagerPath.u8string().c_str(), error.what());
+			     userPluginManagerPath.string().c_str(), error.what());
 			return false;
 		}
 	}
@@ -598,7 +598,7 @@ bool OBSApp::InitGlobalConfig()
 
 bool OBSApp::InitUserConfig(std::filesystem::path &userConfigLocation, uint32_t lastVersion)
 {
-	const std::string userConfigFile = userConfigLocation.u8string() + "/obs-studio/user.ini";
+	const std::string userConfigFile = userConfigLocation.string() + "/obs-studio/user.ini";
 
 	int errorCode = userConfig.Open(userConfigFile.c_str(), CONFIG_OPEN_ALWAYS);
 
@@ -975,7 +975,7 @@ static void move_basic_to_profiles(void)
 			continue;
 		}
 
-		if (entry.path().filename().u8string() == "scenes.json") {
+		if (entry.path().filename().string() == "scenes.json") {
 			continue;
 		}
 
@@ -996,7 +996,7 @@ static void move_basic_to_profiles(void)
 			std::filesystem::copy(entry.path(), destinationFile, copyOptions);
 		} catch (const std::filesystem::filesystem_error &error) {
 			blog(LOG_ERROR, "Failed to copy basic profile file '%s' to new profile 'Untitled'\n%s",
-			     entry.path().filename().u8string().c_str(), error.what());
+			     entry.path().filename().string().c_str(), error.what());
 
 			return;
 		}
@@ -1383,7 +1383,7 @@ void OBSApp::openCrashLogDirectory() const
 		return;
 	}
 
-	QString crashLogDirectoryString = QString::fromStdString(crashLogDirectory.u8string());
+	QString crashLogDirectoryString = QString::fromStdString(crashLogDirectory.string());
 
 	QUrl crashLogDirectoryURL = QUrl::fromLocalFile(crashLogDirectoryString);
 	QDesktopServices::openUrl(crashLogDirectoryURL);

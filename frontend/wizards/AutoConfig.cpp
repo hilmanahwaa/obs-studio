@@ -35,7 +35,7 @@ static OBSData OpenServiceSettings(std::string &type)
 		return OBSData();
 	}
 
-	OBSDataAutoRelease data = obs_data_create_from_json_file_safe(jsonFilePath.u8string().c_str(), "bak");
+	OBSDataAutoRelease data = obs_data_create_from_json_file_safe(jsonFilePath.string().c_str(), "bak");
 
 	obs_data_set_default_string(data, "type", "rtmp_common");
 	type = obs_data_get_string(data, "type");

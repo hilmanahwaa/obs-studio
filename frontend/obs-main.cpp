@@ -750,7 +750,7 @@ static void main_crash_handler(const char *format, va_list args, void * /* param
 	std::replace(pathString.begin(), pathString.end(), '/', '\\');
 #endif
 
-	string absolutePath = canonical(filesystem::path(pathString)).u8string();
+	string absolutePath = canonical(filesystem::path(pathString)).string();
 
 	size_t size = snprintf(nullptr, 0, CRASH_MESSAGE, absolutePath.c_str());
 

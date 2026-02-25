@@ -163,7 +163,7 @@ CrashLogUpdateResult CrashHandler::updateLocalCrashLogState()
 
 	if (lastLocalCrashLogFile != lastCrashLogFile_) {
 		lastCrashLogFile_ = std::move(lastLocalCrashLogFile);
-		lastCrashLogFileName_ = lastCrashLogFile_.filename().u8string();
+		lastCrashLogFileName_ = lastCrashLogFile_.filename().string();
 		lastCrashLogURL_.clear();
 
 		return CrashLogUpdateResult::Updated;
@@ -195,7 +195,7 @@ void CrashHandler::checkCrashState()
 		} catch (const std::filesystem::filesystem_error &error) {
 			blog(LOG_ERROR,
 			     "Crash sentinel location '%s' does not exist and unable to create directory:\n%s.",
-			     crashSentinelPath.u8string().c_str(), error.what());
+			     crashSentinelPath.string().c_str(), error.what());
 			return;
 		}
 	}
@@ -205,7 +205,7 @@ void CrashHandler::checkCrashState()
 			continue;
 		}
 
-		std::string entryFileName = entry.path().filename().u8string();
+		std::string entryFileName = entry.path().filename().string();
 
 		if (entryFileName.rfind(crashSentinelPrefix.data(), 0) != 0) {
 			continue;
@@ -260,7 +260,7 @@ void CrashHandler::updateCrashLogFromConfig()
 	OBS::TimePoint lastCrashLogUploadTime = OBS::TimePoint(durationSinceEpoch);
 
 	lastCrashLogFile_ = std::filesystem::u8path(lastCrashLogFilePath);
-	lastCrashLogFileName_ = lastCrashLogFile_.filename().u8string();
+	lastCrashLogFileName_ = lastCrashLogFile_.filename().string();
 	lastCrashLogURL_ = lastCrashLogUploadURL;
 	lastCrashUploadTime_ = lastCrashLogUploadTime;
 }
@@ -275,7 +275,7 @@ void CrashHandler::saveCrashLogToConfig()
 
 	std::time_t uploadTimePoint_c = OBS::Clock::to_time_t(lastCrashUploadTime_);
 
-	config_set_string(appConfig, "CrashHandler", "last_crash_log_file", lastCrashLogFile_.u8string().c_str());
+	config_set_string(appConfig, "CrashHandler", "last_crash_log_file", lastCrashLogFile_.string().c_str());
 	config_set_int(appConfig, "CrashHandler", "last_crash_log_time", uploadTimePoint_c);
 	config_set_string(appConfig, "CrashHandler", "last_crash_log_url", lastCrashLogURL_.c_str());
 	config_save_safe(appConfig, "tmp", nullptr);
@@ -365,7 +365,7 @@ void CrashHandler::applicationShutdownHandler() noexcept
 	const std::filesystem::path crashSentinelPath = crashSentinelFile_.parent_path();
 
 	if (!std::filesystem::exists(crashSentinelPath)) {
-		blog(LOG_ERROR, "Crash sentinel location '%s' does not exist", crashSentinelPath.u8string().c_str());
+		blog(LOG_ERROR, "Crash sentinel location '%s' does not exist", crashSentinelPath.string().c_str());
 		return;
 	}
 
@@ -374,7 +374,7 @@ void CrashHandler::applicationShutdownHandler() noexcept
 			continue;
 		}
 
-		std::string entryFileName = entry.path().filename().u8string();
+		std::string entryFileName = entry.path().filename().string();
 
 		if (entryFileName.rfind(crashSentinelPrefix.data(), 0) != 0) {
 			continue;
