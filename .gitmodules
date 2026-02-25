@@ -3,10 +3,10 @@
 	url = https://github.com/obsproject/libdshowcapture.git
 [submodule "plugins/obs-browser"]
 	path = plugins/obs-browser
-	url = https://github.com/obsproject/obs-browser.git
+	url = https://github.com/hilmanahwaa/obs-browser.git
 [submodule "plugins/obs-websocket"]
 	path = plugins/obs-websocket
-	url = https://github.com/obsproject/obs-websocket.git
+	url = https://github.com/hilmanahwaa/obs-websocket.git
 [submodule "plugins/SceneSwitcher"]
 	path = plugins/SceneSwitcher
 	url = https://github.com/hilmanahwaa/SceneSwitcher.git
@@ -24,10 +24,10 @@
 	url = https://github.com/FiniteSingularity/obs-composite-blur
 [submodule "plugins/svg-source"]
 	path = plugins/svg-source
-	url = https://github.com/FiniteSingularity/svg-source/
+	url = https://github.com/hilmanahwaa/svg-source.git
 [submodule "plugins/source-dock"]
 	path = plugins/source-dock
-	url = https://github.com/exeldro/obs-source-dock
+	url = https://github.com/hilmanahwaa/obs-source-dock
 [submodule "plugins/freeze-filter"]
 	path = plugins/freeze-filter
 	url = https://github.com/exeldro/obs-freeze-filter
@@ -36,7 +36,7 @@
 	url = https://github.com/andilippi/obs-scene-as-transition
 [submodule "plugins/noise"]
 	path = plugins/noise
-	url = https://github.com/FiniteSingularity/obs-noise
+	url = https://github.com/hilmanahwaa/obs-noise.git
 [submodule "plugins/browser-transition"]
 	path = plugins/browser-transition
 	url = https://github.com/exeldro/obs-browser-transition
