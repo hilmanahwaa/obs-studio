@@ -64,14 +64,58 @@
    <item>
     <widget class="Line" name="line">
      <property name="orientation">
-      <enum>Qt::Vertical</enum>
+      <enum>Qt::Orientation::Vertical</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="back">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>22</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>NavigateBack</string>
+     </property>
+     <property name="icon">
+      <iconset theme="QIcon::ThemeIcon::GoPrevious"/>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+     <property name="class" stdset="0">
+      <string notr="true">icon-back</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="forward">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>22</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>NavigateForward</string>
+     </property>
+     <property name="icon">
+      <iconset theme="QIcon::ThemeIcon::GoNext"/>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+     <property name="class" stdset="0">
+      <string notr="true">icon-forward</string>
      </property>
     </widget>
    </item>
    <item>
     <spacer name="horizontalSpacer">
      <property name="orientation">
-      <enum>Qt::Horizontal</enum>
+      <enum>Qt::Orientation::Horizontal</enum>
      </property>
      <property name="sizeHint" stdset="0">
       <size>
